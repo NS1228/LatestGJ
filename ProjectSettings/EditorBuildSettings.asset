@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tilt control.unity
+    guid: 69b2b1eb7de5de54cb32933185c86911
   m_configObjects: {}
