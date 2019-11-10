@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball_Movement : MonoBehaviour
 {
+    public float force;
     public float timer;
 
     public float speed = 3.0f;
@@ -42,5 +43,21 @@ public class Ball_Movement : MonoBehaviour
 
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Glove")
+        {
+            timer = 99999;
+
+            Vector3 dir = collision.contacts[0].point - transform.position;
+            // We then get the opposite (-Vector3) and normalize it
+            dir = -dir.normalized;
+            // And finally we add force in the direction of dir and multiply it by force. 
+            // This will push back the player
+            GetComponent<Rigidbody>().AddForce(dir * force);
+            this.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
+}
 
