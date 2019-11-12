@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Net : MonoBehaviour
 {
     public float lives;
+    public GameObject losePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,12 @@ public class Net : MonoBehaviour
     {
         if(lives <= 0)
         {
-            SceneManager.LoadScene(0);
+            Time.timeScale = 0;
+            losePanel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
         
     }

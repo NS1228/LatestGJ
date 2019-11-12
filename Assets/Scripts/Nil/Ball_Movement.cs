@@ -24,18 +24,18 @@ public class Ball_Movement : MonoBehaviour
         zPos = Random.Range(-7f, -7f);
 
         desiredPos = new Vector3(xPos, yPos, zPos);
-        timer = Time.time + 1.5f;
+        timer = Time.timeSinceLevelLoad + 1.5f;
     }
 
     void Update()
     {
-        if (Time.time >= timer)
+        if (Time.timeSinceLevelLoad >= timer)
         {
             Shoot();
         }
         speed = Random.Range(1.5f, 2.0f);
 
-        if(Time.time >= deathTimer)
+        if(Time.timeSinceLevelLoad >= deathTimer)
         {
             Destroy(gameObject);
         }

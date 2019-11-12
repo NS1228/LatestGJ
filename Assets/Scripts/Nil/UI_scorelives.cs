@@ -13,6 +13,7 @@ public class UI_scorelives : MonoBehaviour
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI finalScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,9 @@ public class UI_scorelives : MonoBehaviour
 
        score = gloves.GetComponent<Save_Counter>().saves;
        scoreText.text = "Score:" + score;
+       finalScoreText.text = "Score:" + score;
+
+
 
 
     }
