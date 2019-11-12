@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Ball_Movement : MonoBehaviour
 {
+    public GameObject gloves;
+
     public float force;
     public float timer;
 
-    public float speed = 3.0f;
+    public float speed;
     public float xPos;
     public float yPos;
     public float zPos;
     public Vector3 desiredPos;
+
+    public float deathTimer;
     void Start()
     {
-        
-        xPos = Random.Range(-8.5f, 8.5f);
+        deathTimer = 1000;
+        xPos = Random.Range(-9.5f, 9.5f);
         yPos = Random.Range(-4.5f, 5.5f);
         zPos = Random.Range(-7f, -7f);
 
@@ -29,7 +33,12 @@ public class Ball_Movement : MonoBehaviour
         {
             Shoot();
         }
-        speed = Random.Range(3.0f, 4.0f);
+        speed = Random.Range(1.5f, 2.0f);
+
+        if(Time.time >= deathTimer)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -48,6 +57,7 @@ public class Ball_Movement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Glove")
         {
+            gloves.GetComponent<Save_Counter>().saves += 1;
             timer = 99999;
 
             Vector3 dir = collision.contacts[0].point - transform.position;
@@ -57,6 +67,8 @@ public class Ball_Movement : MonoBehaviour
             // This will push back the player
             GetComponent<Rigidbody>().AddForce(dir * force);
             this.GetComponent<Rigidbody>().useGravity = true;
+            deathTimer = Time.timeSinceLevelLoad + 2f;
+         
         }
     }
 }
