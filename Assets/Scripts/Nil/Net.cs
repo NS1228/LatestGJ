@@ -8,10 +8,14 @@ public class Net : MonoBehaviour
     public float lives;
     public GameObject losePanel;
 
+    public AudioClip lose;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         lives = 3;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class Net : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
+            audioSource.PlayOneShot(lose, 1F);
             Destroy(collision.gameObject);
             lives -= 1;
         }

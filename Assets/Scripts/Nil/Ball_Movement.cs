@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Ball_Movement : MonoBehaviour
 {
+    public bool playSound;
+    public float soundTimer;   
+    public AudioClip kick;
+    AudioSource audioSource;
+
     public GameObject gloves;
 
     public float force;
@@ -25,6 +30,8 @@ public class Ball_Movement : MonoBehaviour
 
         desiredPos = new Vector3(xPos, yPos, zPos);
         timer = Time.timeSinceLevelLoad + 1.5f;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,6 +51,13 @@ public class Ball_Movement : MonoBehaviour
 
     public void Shoot()
     {
+        if(Time.timeSinceLevelLoad >= soundTimer)
+        {
+            audioSource.PlayOneShot(kick, 1F);
+            soundTimer = Time.timeSinceLevelLoad + 10f;
+            
+        }
+       
         transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime * speed);
         if (Vector3.Distance(transform.position, desiredPos) <= 0.01f)
         {
