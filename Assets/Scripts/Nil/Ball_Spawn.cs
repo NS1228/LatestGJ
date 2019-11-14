@@ -43,7 +43,7 @@ public class Ball_Spawn : MonoBehaviour
     {
         if (spawnSpeed == 0 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 3f;
@@ -51,35 +51,35 @@ public class Ball_Spawn : MonoBehaviour
 
         if (spawnSpeed == 1 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 2.5f;
         }
         if (spawnSpeed == 2 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 2f;
         }
         if (spawnSpeed == 3 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 1.5f;
         }
         if (spawnSpeed == 4 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 1f;
         }
         if (spawnSpeed == 5 && Time.time >= interval)
         {
-            Vector3 position = new Vector3(Random.Range(-23, 23), -4.5f, Random.Range(20, 60));
+            Vector3 position = new Vector3(Random.Range(-23, 23), -4.1f, Random.Range(20, 60));
             Instantiate(ball, position, Quaternion.identity);
             currentBalls += 1;
             interval = Time.time + 0.5f;
